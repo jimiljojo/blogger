@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'author_sessions#new'
+  root 'articles#show'
   resources :articles do
   	resources :comments
   end
