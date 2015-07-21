@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'articles#index'
+  root 'author_sessions#destroy'
   resources :articles do
   	resources :comments
   end
