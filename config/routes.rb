@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'authors#new'
+  root 'articles#index'
   resources :articles do
   	resources :comments
   end
