@@ -1,5 +1,6 @@
 class AuthorSessionsController < ApplicationController
   include AuthorSessionsHelper
+  
   def new
   end
 
@@ -24,5 +25,6 @@ class AuthorSessionsController < ApplicationController
   	unless Author.count == 0 || current_user
 	  redirect_to root_path
 	  return false
-	end
+	  end
+  end
 end
