@@ -1,6 +1,8 @@
 class AuthorSessionsController < ApplicationController
   include AuthorSessionsHelper
-  
+  before_filter :zero_authors_or_authenticated, only: [:new, :create]
+  before_filter :require_login, except: [:new, :create]
+
   def new
   end
 
@@ -17,9 +19,6 @@ class AuthorSessionsController < ApplicationController
     logout
     redirect_to(:authors, notice: 'Logged out!')
   end
-
-  before_filter :zero_authors_or_authenticated, only: [:new, :create]
-  before_filter :require_login, except: [:new, :create]
 
   def zero_authors_or_authenticated
   	unless Author.count == 0 || current_user
